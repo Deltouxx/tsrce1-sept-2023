@@ -1,3 +1,5 @@
+import { cx0, r0, cy0, svgns } from "./constant";
+
 console.log("coucou");
 
 const samples = 10;
