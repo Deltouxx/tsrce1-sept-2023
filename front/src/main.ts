@@ -1,3 +1,4 @@
+import "./style.css";
 import { cx0, r0, cy0, svgns } from "./constant";
 
 console.log("coucou");
