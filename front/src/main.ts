@@ -1,6 +1,6 @@
-import "./style.css";
-import { cx0, r0, cy0, svgns } from "./constant";
+import { cx0, cy0, r0, svgns } from "./constant";
 import { querySelector } from "./misc";
+import "./style.css";
 
 console.log("coucou");
 
