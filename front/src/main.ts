@@ -1,5 +1,6 @@
 import "./style.css";
 import { cx0, r0, cy0, svgns } from "./constant";
+import { querySelector } from "./misc";
 
 console.log("coucou");
 
@@ -7,10 +8,7 @@ const samples = 10;
 const multiplicationFactor = 2;
 
 // add the small circles (samples)
-const sampleContainer = document.querySelector("g.samples");
-if (sampleContainer === null) {
-  throw new Error("oups");
-}
+const sampleContainer = querySelector("g.samples");
 for (let i = 0; i < samples; i++) {
   const angle = (i * 2 * Math.PI) / samples - Math.PI / 2;
   const cx = cx0 + r0 * Math.cos(angle);
@@ -25,10 +23,7 @@ for (let i = 0; i < samples; i++) {
 }
 
 // add the lines
-const lineContainer = document.querySelector("g.lines");
-if (lineContainer === null) {
-  throw new Error("oups");
-}
+const lineContainer = querySelector("g.lines");
 for (let i = 0; i < samples; i++) {
   const angle1 = (i * 2 * Math.PI) / samples - Math.PI / 2;
   const x1 = cx0 + r0 * Math.cos(angle1);
