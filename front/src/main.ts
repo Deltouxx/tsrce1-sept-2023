@@ -1,5 +1,5 @@
 import { cx0, cy0, r0, svgns } from "./constant";
-import { querySelector } from "./misc";
+import { querySelector, setAttributeNbr } from "./misc";
 import "./style.css";
 
 console.log("coucou");
@@ -15,10 +15,9 @@ for (let i = 0; i < samples; i++) {
   const cy = cy0 + r0 * Math.sin(angle);
 
   const circle = document.createElementNS(svgns, "circle");
-  circle.setAttributeNS(null, "cx", cx + "");
-  circle.setAttributeNS(null, "cy", cy.toString());
-  circle.setAttributeNS(null, "r", "1");
-
+  setAttributeNbr(circle, "cx", cx);
+  setAttributeNbr(circle, "cy", cy);
+  setAttributeNbr(circle, "r", 1);
   sampleContainer.appendChild(circle);
 }
 
@@ -34,10 +33,10 @@ for (let i = 0; i < samples; i++) {
   const y2 = cy0 + r0 * Math.sin(angle2);
 
   const line = document.createElementNS(svgns, "line");
-  line.setAttributeNS(null, "x1", x1 + "");
-  line.setAttributeNS(null, "y1", y1 + "");
-  line.setAttributeNS(null, "x2", x2 + "");
-  line.setAttributeNS(null, "y2", y2 + "");
+  setAttributeNbr(line, "x1", x1);
+  setAttributeNbr(line, "y1", y1);
+  setAttributeNbr(line, "x2", x2);
+  setAttributeNbr(line, "y2", y2);
 
   lineContainer.appendChild(line);
 }
