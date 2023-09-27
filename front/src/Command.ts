@@ -58,6 +58,7 @@ export class Command {
       });
     }
     this.setPlayBtnAction();
+    this.setRandomBtnAction();
   }
 
   setConfig(config: Config) {
@@ -75,6 +76,13 @@ export class Command {
       if (this.isPlaying) {
         this.play();
       }
+    });
+  }
+
+  setRandomBtnAction() {
+    const randomBtn = querySelector("div.command div.buttons button.random");
+    randomBtn.addEventListener("click", () => {
+      console.log("get random");
     });
   }
 }
