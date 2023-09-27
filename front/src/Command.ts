@@ -1,3 +1,4 @@
+import { url } from "./constant";
 import { Config } from "./interfaces/Config";
 import { getKeys, querySelector, sleep } from "./misc";
 
@@ -81,8 +82,15 @@ export class Command {
 
   setRandomBtnAction() {
     const randomBtn = querySelector("div.command div.buttons button.random");
-    randomBtn.addEventListener("click", () => {
-      console.log("get random");
+    randomBtn.addEventListener("click", async () => {
+      try {
+        console.log("get random");
+        const response = await fetch(url);
+        const config: Config = await response.json();
+        this.setConfig(config);
+      } catch (err) {
+        console.log("err: ", err);
+      }
     });
   }
 }
