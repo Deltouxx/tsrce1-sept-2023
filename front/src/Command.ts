@@ -9,6 +9,7 @@ export class Command {
     samples: 0,
     multiplicationFactor: 0,
   };
+  private isPlaying = false;
 
   constructor() {
     this.render();
@@ -30,6 +31,10 @@ export class Command {
       );
       slider.value = this.config[key] + "";
     }
+    querySelector("div.command div.buttons button.play").innerHTML = this
+      .isPlaying
+      ? "Pause"
+      : "Play";
   }
 
   setActions() {
@@ -57,6 +62,8 @@ export class Command {
     const playBtn = querySelector("div.command div.buttons button.play");
     playBtn.addEventListener("click", () => {
       console.log("click");
+      this.isPlaying = !this.isPlaying;
+      this.render();
     });
   }
 }
