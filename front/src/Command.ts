@@ -44,11 +44,19 @@ export class Command {
         this.setConfig(newConfig);
       });
     }
+    this.setPlayBtnAction();
   }
 
   setConfig(config: Config) {
     this.config = config;
     this.render();
     this.callback(this.config);
+  }
+
+  setPlayBtnAction() {
+    const playBtn = querySelector("div.command div.buttons button.play");
+    playBtn.addEventListener("click", () => {
+      console.log("click");
+    });
   }
 }
