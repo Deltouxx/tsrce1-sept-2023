@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 
 const app = express.Router();
 
@@ -11,4 +11,4 @@ app.get("/random-config", (req, res) => {
   res.json({ sample: 123, multiplicationfactor: 97 });
 });
 
-module.exports = app;
+export default app;
