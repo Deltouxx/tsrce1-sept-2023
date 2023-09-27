@@ -12,6 +12,7 @@ export class Command {
 
   constructor() {
     this.render();
+    this.setActions();
   }
 
   onUpdate(callback: Callback) {
@@ -31,8 +32,23 @@ export class Command {
     }
   }
 
+  setActions() {
+    const keys: (keyof Config)[] = ["samples", "multiplicationFactor"];
+    for (const key of keys) {
+      const slider = querySelector(
+        `div.command label.${key} input`,
+        HTMLInputElement
+      );
+      slider.addEventListener("input", () => {
+        const newConfig: Config = { ...this.config, [key]: +slider.value };
+        this.setConfig(newConfig);
+      });
+    }
+  }
+
   setConfig(config: Config) {
     this.config = config;
     this.render();
+    this.callback(this.config);
   }
 }

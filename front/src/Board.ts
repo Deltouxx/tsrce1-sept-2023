@@ -9,7 +9,14 @@ export class Board {
     multiplicationFactor: 0,
   };
 
+  clean() {
+    querySelector("g.samples").innerHTML = "";
+    querySelector("g.lines").innerHTML = "";
+  }
+
   draw() {
+    this.clean();
+
     const { samples, multiplicationFactor } = this.config;
     // add the small circles (samples)
     const sampleContainer = querySelector("g.samples");
